@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+
+    <!-- Styles -->
+    <link href="{% static "css/blog.css" %}" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="wrapper">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

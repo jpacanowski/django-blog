@@ -5,12 +5,18 @@
 {% block content %}
 
   {% for post in posts %}
-    <h2 class="post-title">
-      <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-    </h2>
-    {{ post.body | truncatewords:30 | linebreaks }}
+    <div class="wrapper">
+      <h2 class="postlist__title">
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+      </h2>
+      <div class="postlist__content">
+        {{ post.body | truncatewords:30 | linebreaks }}
+      </div>
+    </div>
   {% endfor %}
 
-  {% include "pagination.html" with page=posts %}
+  <div class="wrapper">
+    {% include "pagination.html" with page=posts %}
+  </div>
 
 {% endblock %}

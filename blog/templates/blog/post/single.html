@@ -3,6 +3,16 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
-  <h1 class="post-title">{{ post.title }}</h1>
-  {{ post.body | linebreaks }}
+  <article>
+    <header class="post__header">
+      <div class="wrapper">
+        <h1 class="post__title">{{ post.title }}</h1>
+      </div>
+    </header>
+    <div class="post__content">
+      <div class="wrapper">
+        {{ post.body | linebreaks }}
+      </div>
+    </div>
+  </article>
 {% endblock %}

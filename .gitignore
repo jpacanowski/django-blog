@@ -32,7 +32,7 @@ var/
 db.sqlite3
 media/
 .idea/
-static/
+#static/
 assets/
 
 node_modules/

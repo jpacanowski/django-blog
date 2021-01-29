@@ -14,6 +14,20 @@ body {
     padding: 80px 0;
 }
 
+.post__meta {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.post__meta i {
+    margin-right: 6px;
+}
+
+.post__meta span {
+    margin-left: 8px;
+}
+
 .post__title {
     font-size: 38px;
     color: #fff;
@@ -24,9 +38,33 @@ body {
     margin: 44px 0;
     line-height: 1.6;
     letter-spacing: 0.01em;
+    text-align: justify;
     font-weight: 300;
     font-size: 18px;
     color: #333;
+}
+
+.comments {
+    margin: 4.4em 0;
+    padding: 0;
+    list-style: none;
+}
+
+.comments__item {
+    margin-top: 55px;
+}
+
+.comments__item--author {
+    font-weight: 600;
+}
+
+.comments__item--timedate {
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+.comment__form {
+    margin-bottom: 55px;
 }
 
 .postlist__title a {
@@ -40,4 +78,25 @@ body {
 
 .pagination {
     margin-top: 44px;
+}
+
+label {
+    color:#333;
+    margin-bottom: 4px;
+    display: block;
+}
+input, textarea {
+    margin: 0 0 10px;
+    background:#ededed;
+    border: 0;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+input[type=submit] {
+    font-weight: bold;
+    background:#00abff;
+    color:#fff;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: uppercase;
 }

@@ -4,15 +4,58 @@
 
 {% block content %}
   <article>
+
     <header class="post__header">
       <div class="wrapper">
         <h1 class="post__title">{{ post.title }}</h1>
+        <div class="post__meta">
+          <time>
+            <i class="fa fa-calendar" aria-hidden="true"></i>{{ post.created_at | date:"M d, Y" }}
+          </time>
+          <span>
+            <i class="fa fa-comment" aria-hidden="true"></i>{{ comments.count }} comments
+          </span>
+        </div>
       </div>
     </header>
+
     <div class="post__content">
       <div class="wrapper">
         {{ post.body | linebreaks }}
       </div>
     </div>
+
+    <ul class="comments">
+      <div class="wrapper">
+        <h3>Comments</h3>
+        {% for comment in comments %}
+          <li class="comments__item">
+            <div class="comments__item--header">
+              <div class="comments__item--author">{{ comment.name }}</div>
+              <div class="comments__item--timedate">{{ comment.created_at }}</div>
+            </div>
+            <div class="comments__item--content">{{ comment.body | linebreaks }}</div>
+          </li>
+        {% empty %}
+          <p>No comments yet.</p>
+        {% endfor %}
+      </div>
+    </ul>
+
+    <div class="comment__form">
+      <div class="wrapper">
+        {% if new_comment %}
+          <h4>Your comment has been added.</h4>
+        {% else %}
+          <h4>Add a new comment</h4>
+          <form action="." method="post">
+            {{ comment_form.as_p }}
+            {% csrf_token %}
+            </p><input type="submit" value="Submit">
+          </form>
+        {% endif %}
+      </div>
+    </div>
+
   </article>
 {% endblock %}

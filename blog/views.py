@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
+from taggit.models import Tag
 from .forms import CommentForm
 from .models import Post, Comment
 
@@ -12,11 +13,18 @@ class PostListView(ListView):
     template_name = 'blog/post/index.html'
     paginate_by = 3
 
-def post_list(request):
+def post_list(request, tag_slug=None):
     # posts = Post.published.all()
     # return render(request, 'blog/post/index.html',
     #    {'posts': posts})
     object_list = Post.published.all()
+
+    tag = None
+
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        object_list = object_list.filter(tags__in=[tag])
+
     paginator = Paginator(object_list, 10) # Trzy posty na każdej stronie
     page = request.GET.get('page')
     try:
@@ -29,9 +37,11 @@ def post_list(request):
         # Jeżeli zmienna page ma wartość większą niż numer ostatniej strony
         # wyników, wtedy pobierana jest ostatnia strona wyników.
         posts = paginator.page(paginator.num_pages)
+
     return render(request, 'blog/post/index.html', {
         'page': page,
-        'posts': posts})
+        'posts': posts,
+        'tag': tag})
 
 def post_detail(request, post):
 

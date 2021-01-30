@@ -44,6 +44,35 @@ body {
     color: #333;
 }
 
+.post__tags {
+    margin: 38px 0 0 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+.post__tags li {
+    float: left;
+    margin-right: 12px;
+    background: #eee;
+}
+
+.post__tags li:hover {
+    background: crimson;
+}
+
+.post__tags li a {
+    color: #999;
+    font-size: 12px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 20px;
+}
+
+.post__tags li a:hover {
+    color: #fff;
+}
+
 .comments {
     margin: 4.4em 0;
     padding: 0;
@@ -65,6 +94,10 @@ body {
 
 .comment__form {
     margin-bottom: 55px;
+}
+
+.postlist__tag {
+    margin: 44px 0;
 }
 
 .postlist__title a {

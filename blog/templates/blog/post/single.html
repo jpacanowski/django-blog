@@ -33,6 +33,21 @@
       </div>
     </ul>
 
+    <div class="similar-posts">
+      <div class="wrapper">
+        <h3>Similar posts</h3>
+        {% if similar_posts %}
+          <ul>
+            {% for post in similar_posts %}
+              <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>No similar posts.</p>
+        {% endif %}
+      </div>
+    </div>
+
     <ul class="comments">
       <div class="wrapper">
         <h3>Comments</h3>

@@ -73,6 +73,14 @@ body {
     color: #fff;
 }
 
+.similar-posts {
+    margin: 55px;
+}
+
+.similar-posts ul {
+    padding-left: 18px;
+}
+
 .comments {
     margin: 4.4em 0;
     padding: 0;

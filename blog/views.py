@@ -70,8 +70,12 @@ def post_detail(request, post):
     similar_posts = similar_posts.annotate(same_tags=Count('tags'))\
         .order_by('-same_tags','-published_at')[:4]
 
+    # Lista ostatnio opublikowanych postów
+    latest_posts = Post.published.order_by('-published_at')[:5]
+
     return render(request, 'blog/post/single.html', {
         'post': post,
         'comments': comments,
         'comment_form': comment_form,
-        'similar_posts': similar_posts})
+        'similar_posts': similar_posts,
+        'latest_posts': latest_posts})

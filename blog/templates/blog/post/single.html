@@ -48,6 +48,21 @@
       </div>
     </div>
 
+    <div class="latest-posts">
+      <div class="wrapper">
+        <h3>Latest posts</h3>
+        {% if latest_posts %}
+          <ul>
+            {% for post in latest_posts %}
+              <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>No latest posts.</p>
+        {% endif %}
+      </div>
+    </div>
+
     <ul class="comments">
       <div class="wrapper">
         <h3>Comments</h3>

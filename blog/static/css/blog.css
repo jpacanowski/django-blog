@@ -73,11 +73,13 @@ body {
     color: #fff;
 }
 
-.similar-posts {
+.similar-posts,
+.latest-posts {
     margin: 55px;
 }
 
-.similar-posts ul {
+.similar-posts ul,
+.latest-posts ul {
     padding-left: 18px;
 }
 

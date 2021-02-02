@@ -1,0 +1,68 @@
+{% load static %}
+
+<aside class="sidebar">
+
+  <header class="aboutMe">
+    <img class="aboutMe_avatar" src="{% static "img/avatar.jpg" %}" alt="" />
+    <h1 class="aboutMe_fullname"><a href="/blog">Jakub Pacanowski</a></h1>
+    <p class="aboutMe_desc">a Full-Stack Web Developer</p>
+    <p class="aboutMe_tags">Odczuwam satysfakcję z rozwiązywania problemów, wyostrzania własnych umiejętności i
+      ćwiczenia swojej inteligencji. Jako programista, codziennie rozwiązuje nowe nieznane mi problemy. Nie interesują
+      mnie pieniądze ani społeczna akceptacja. Gdy ktoś patrzy na mnie jak na dziwaka, mówi o mnie dziwak to ładuję wtedy
+      swoje akumulatory, gdyż wtedy wiem, że mam rację.</p>
+    <p class="aboutMe_tags">Nie interesuje mnie już nowa ogłupiająca technologia. Niejedna osoba mi już zarzuciła, że się cofam i izoluję od świata i od postępu, ale wtedy się tylko uśmiecham. Skoro nazywają to postępem i lubią to, to niech sobie przyspawają do głowy okulary VR, ale dla mnie celem egzystencji jest całkowicie coś innego. Nie jestem niewolnikiem konsumpcjonizmu, inni jednak nazywają to wolnością, bo nie wiedzą w jaki inny sposób poczuć się szczęśliwszym niż iść kupić sobie najnowszy model iPhone.</p>
+    <p class="aboutMe_tags"><b>HTML5, JS, PHP, Full-stack webdev, Linux, BOINC, blockchain, Monero, wszelako pojęte programowanie, retro programming</b>, umiarkowany prawicowiec, przeciwnik kultury masowej, konserwatysta, wyznawca starego porządku,
+      pragnienie zachowania tradycyjnych wartości, zwolennik ustroju komunistycznego z wolnym rynkiem (Chiny, Indie - dwie potęgi gospodarcze), niematerialno-duchowy
+      rozwój cywilizacji, medycyna holistyczna, komputery retro, prymitywna technologia, lata 90’. Pierdolę „nowoczesną” faszystowską technologię,
+      introwertyk, grammar nazi</p>
+  </header>
+
+  <article class="mainNav">
+    <div class="wrapper">
+      <h3 class="mainNav_header">Główne menu</h3>
+      <nav>
+        <ul class="mainNav_ul">
+          <li class="mainNav_item"><a href="#">Wszystkie posty</a></li>
+          <li class="mainNav_item"><a href="#">"Kilka" słów o mnie</a></li>
+          <li class="mainNav_item"><a href="#">Gdzie mnie znajdziesz</a></li>
+          <li class="mainNav_item"><a href="#">Strona portfolio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </article>
+
+  <article class="recentPosts">
+    <div class="wrapper">
+      <h3 class="recentPosts_header">Similar posts</h3>
+      {% if similar_posts %}
+        <nav>
+          <ul class="recentPosts_ul">
+            {% for post in latest_posts %}
+              <li class="recentPosts_item">
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      {% else %}
+        <p>No similar posts.</p>
+      {% endif %}
+    </div>
+  </article>
+
+  <article class="recentPosts">
+    <div class="wrapper">
+      <h3 class="recentPosts_header">Ostatnie posty</h3>
+      <nav>
+        <ul class="recentPosts_ul">
+          <li class="recentPosts_item"><a href="#">Optymalizacja zapytań SQL</a></li>
+          <li class="recentPosts_item"><a href="#">Dlaczego programuję w JavaScript</a></li>
+          <li class="recentPosts_item"><a href="#">Najbardziej efektywna nauka języka obcego</a></li>
+          <li class="recentPosts_item"><a href="#">Optymalizacja systemu Linux (Ubuntu)</a></li>
+          <li class="recentPosts_item"><a href="#">Dlaczego przeszedłem na Ubuntu</a></li>
+        </ul>
+      </nav>
+    </div>
+  </article>
+
+</aside>

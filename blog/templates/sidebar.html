@@ -47,24 +47,11 @@
           </ul>
         </nav>
       {% else %}
-        <p>No similar posts.</p>
+        <p>No similar posts</p>
       {% endif %}
     </div>
   </article>
 
-  <article class="recentPosts">
-    <div class="wrapper">
-      <h3 class="recentPosts_header">Ostatnie posty</h3>
-      <nav>
-        <ul class="recentPosts_ul">
-          <li class="recentPosts_item"><a href="#">Optymalizacja zapytań SQL</a></li>
-          <li class="recentPosts_item"><a href="#">Dlaczego programuję w JavaScript</a></li>
-          <li class="recentPosts_item"><a href="#">Najbardziej efektywna nauka języka obcego</a></li>
-          <li class="recentPosts_item"><a href="#">Optymalizacja systemu Linux (Ubuntu)</a></li>
-          <li class="recentPosts_item"><a href="#">Dlaczego przeszedłem na Ubuntu</a></li>
-        </ul>
-      </nav>
-    </div>
-  </article>
+  {% show_latest_posts %}
 
 </aside>

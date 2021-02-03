@@ -1,0 +1,18 @@
+<article class="recentPosts">
+  <div class="wrapper">
+    <h3 class="recentPosts_header">Latest posts</h3>
+    {% if latest_posts %}
+      <nav>
+        <ul class="recentPosts_ul">
+          {% for post in latest_posts %}
+            <li class="recentPosts_item">
+              <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% else %}
+      <p>No posts yet</p>
+    {% endif %}
+  </div>
+</article>

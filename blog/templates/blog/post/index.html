@@ -11,14 +11,18 @@
         <p class="postlist__tag">Posts with the tag "{{ tag.name }}"</p>
       {% endif %}
 
-      <ul class="postlist">
-        {% for post in posts %}
-          <li class="postlist__item">
-            <time>{{ post.published_at | date:"Y-m-d" }}</time>
-            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
+      {% if posts %}
+        <ul class="postlist">
+          {% for post in posts %}
+            <li class="postlist__item">
+              <time>{{ post.published_at | date:"Y-m-d" }}</time>
+              <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>NO POSTS YET</p>
+      {% endif %}
 
       {% include "pagination.html" with page=posts %}
 

@@ -1,3 +1,4 @@
+{% load blog_tags %}
 {% load static %}
 
 <aside class="sidebar">
@@ -6,6 +7,7 @@
     <img class="aboutMe_avatar" src="{% static "img/avatar.jpg" %}" alt="" />
     <h1 class="aboutMe_fullname"><a href="/blog">Jakub Pacanowski</a></h1>
     <p class="aboutMe_desc">a Full-Stack Web Developer</p>
+    <p class="aboutMe_tags">Dotąd stworzyłem {% total_posts %} zajebistych postów.</p>
     <p class="aboutMe_tags">Odczuwam satysfakcję z rozwiązywania problemów, wyostrzania własnych umiejętności i
       ćwiczenia swojej inteligencji. Jako programista, codziennie rozwiązuje nowe nieznane mi problemy. Nie interesują
       mnie pieniądze ani społeczna akceptacja. Gdy ktoś patrzy na mnie jak na dziwaka, mówi o mnie dziwak to ładuję wtedy

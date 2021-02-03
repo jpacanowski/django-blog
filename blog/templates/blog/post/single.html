@@ -7,7 +7,7 @@
     <div class="wrapper">
 
       <header>
-        <h2>{{ post.title }}</h2>
+        <h1>{{ post.title }}</h1>
         <div class="mainContent_meta">
           <time>
             <i class="fa fa-calendar" aria-hidden="true"></i>{{ post.created_at | date:"M d, Y" }}
@@ -34,6 +34,7 @@
         </section>
 
         <section class="post__comments">
+          <h4 class="visually-hidden">Comments</h4>
           <ul>
             {% for comment in comments %}
               <li class="comment__item">
@@ -53,6 +54,7 @@
           {% if new_comment %}
             <h4>Your comment has been added.</h4>
           {% else %}
+            <h4 class="visually-hidden">Add comment</h4>
             <form class="form" action="." method="POST">
 
               {% csrf_token %}

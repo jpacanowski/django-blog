@@ -72,6 +72,17 @@ html {
     height: 100%;
 }
 
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
 .sidebar {
     float: left;
     width: 30%;
@@ -124,7 +135,8 @@ html {
     text-align: left;
     color: rgb(176, 202, 219);
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
+    font-size: 1.17em;
 }
 
 .mainNav_ul,
@@ -159,7 +171,7 @@ html {
     background: #fff;
 }
 
-.mainContent h2 {
+.mainContent h1 {
     margin: 0;
     font-size: 33px;
 }
@@ -198,6 +210,13 @@ html {
 .postlist__item {
     font-weight: 400;
     margin-bottom: 14px;
+}
+
+.postlist__item h2 {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
 }
 
 .postlist__item a {

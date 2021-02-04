@@ -1,0 +1,18 @@
+<article class="recentPosts">
+  <div class="wrapper">
+    <h6 class="recentPosts_header">Most commented posts</h6>
+    {% if most_commented_posts %}
+      <nav>
+        <ul class="recentPosts_ul">
+          {% for post in most_commented_posts %}
+            <li class="recentPosts_item">
+              <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% else %}
+      <p>No most commented posts yet</p>
+    {% endif %}
+  </div>
+</article>

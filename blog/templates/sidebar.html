@@ -21,13 +21,14 @@
 
   <article class="mainNav">
     <div class="wrapper">
-      <h6 class="mainNav_header">Główne menu</h6>
+      <h6 class="mainNav_header">Main menu</h6>
       <nav>
         <ul class="mainNav_ul">
           <li class="mainNav_item"><a href="#">Wszystkie posty</a></li>
           <li class="mainNav_item"><a href="#">"Kilka" słów o mnie</a></li>
           <li class="mainNav_item"><a href="#">Gdzie mnie znajdziesz</a></li>
           <li class="mainNav_item"><a href="#">Strona portfolio</a></li>
+          <li class="mainNav_item"><a href="{% url "blog:post_feed" %}">Subscribe to an RSS Feed</a></li>
         </ul>
       </nav>
     </div>

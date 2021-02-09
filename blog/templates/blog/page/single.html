@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <main class="mainContent">
+    <div class="wrapper">
+
+      <header>
+        <h1>{{ page.title }}</h1>
+        <div class="mainContent_meta">
+          <time>
+            <i class="fa fa-calendar" aria-hidden="true"></i>{{ page.created_at | date:"M d, Y" }}
+          </time>
+          <span>
+            <i class="fa fa-eye" aria-hidden="true"></i>14 osób przeczytało
+          </span>
+        </div>
+      </header>
+
+      {{ page.body | safe }}
+
+    </div>
+  </main>
+{% endblock %}

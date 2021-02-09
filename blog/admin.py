@@ -1,7 +1,16 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Page, Post, Comment
 
 # Register your models here.
+
+@admin.register(Page)
+class PageAdmin(admin.ModelAdmin):
+
+    list_display = ('title', 'published_at', 'status')
+    list_filter = ('status', 'created_at', 'published_at')
+    search_fields = ('title', 'body')
+    prepopulated_fields = {'slug': ('title',)}
+    ordering = ('status', 'title')
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):

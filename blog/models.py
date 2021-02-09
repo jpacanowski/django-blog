@@ -6,18 +6,40 @@ from taggit.managers import TaggableManager
 
 # Create your models here.
 
+STATUS_CHOICES = (
+    ('draft', 'Draft'),
+    ('published', 'Published'),
+)
+
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager, self) \
             .get_queryset() \
             .filter(status='published')
 
-class Post(models.Model):
+class Page(models.Model):
 
-    STATUS_CHOICES = (
-        ('draft', 'Draft'),
-        ('published', 'Published'),
-    )
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255, unique=True, null=False)
+    body = models.TextField()
+    published_at = models.DateTimeField(default=timezone.now)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
+
+    objects = models.Manager() # Menedżer domyślny
+    published = PublishedManager() # Menedżer niestandardowy
+
+    class Meta:
+        ordering = ('title',)
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('blog:page_detail', args=[self.slug])
+
+class Post(models.Model):
 
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, null=False)

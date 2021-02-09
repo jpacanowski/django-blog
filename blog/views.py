@@ -4,7 +4,7 @@ from django.views.generic import ListView
 from django.db.models import Count
 from taggit.models import Tag
 from .forms import CommentForm
-from .models import Post, Comment
+from .models import Page, Post, Comment
 
 # Create your views here.
 
@@ -79,3 +79,7 @@ def post_detail(request, post):
         'comment_form': comment_form,
         'similar_posts': similar_posts,
         'latest_posts': latest_posts})
+
+def page_detail(request, page):
+    page = get_object_or_404(Page, slug=page, status='published')
+    return render(request, 'blog/page/single.html',{'page': page})

@@ -37,7 +37,7 @@ class Page(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog:page_detail', args=[self.slug])
+        return reverse('blog:PagePost_detail', args=[self.slug])
 
 class Post(models.Model):
 
@@ -61,7 +61,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog:post_detail', args=[self.slug])
+        return reverse('blog:PagePost_detail', args=[self.slug])
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')

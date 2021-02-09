@@ -81,5 +81,10 @@ def post_detail(request, post):
         'latest_posts': latest_posts})
 
 def page_detail(request, page):
+
     page = get_object_or_404(Page, slug=page, status='published')
-    return render(request, 'blog/page/single.html',{'page': page})
+    pages = Page.published.values('title')
+
+    return render(request, 'blog/page/single.html', {
+        'page': page,
+        'pages': pages})

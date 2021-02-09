@@ -25,9 +25,13 @@
       <nav>
         <ul class="mainNav_ul">
           <li class="mainNav_item"><a href="#">Wszystkie posty</a></li>
-          <li class="mainNav_item"><a href="#">"Kilka" słów o mnie</a></li>
-          <li class="mainNav_item"><a href="#">Gdzie mnie znajdziesz</a></li>
-          <li class="mainNav_item"><a href="#">Strona portfolio</a></li>
+          {% if pages %}
+            {% for page in pages %}
+              <li class="mainNav_item">
+                <a href="{{ page.get_absolute_url }}">{{ page.title }}</a>
+              </li>
+            {% endfor %}
+          {% endif %}
           <li class="mainNav_item"><a href="{% url "blog:post_feed" %}">Subscribe to an RSS Feed</a></li>
         </ul>
       </nav>

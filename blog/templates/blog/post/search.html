@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Szukaj{% endblock %}
+
+{% block content %}
+  <main class="mainContent">
+    <div class="wrapper">
+      {% if query %}
+        <h1>Posts containing "{{ query }}"</h1>
+        {% with results.count as total_results %}
+          <h3>Found {{ total_results }} result{{ total_results|pluralize:"s" }}</h3>
+        {% endwith %}
+        {% for post in results %}
+          <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+          {{ post.body | safe | truncatewords:5 }}
+        {% empty %}
+          <p>No results for given query.</p>
+        {% endfor %}
+        <p><a href="{% url "blog:post_search" %}">Search again</a></p>
+      {% else %}
+        <h1>Search posts</h1>
+        <form action="." method="get">
+          {{ form.as_p }}
+          <input type="submit" value="Search">
+        </form>
+      {% endif %}
+    </div>
+  </main>
+{% endblock %}

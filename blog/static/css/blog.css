@@ -176,6 +176,15 @@ html {
     font-size: 33px;
 }
 
+.mainContent h2 {
+    margin: 44px 0 0 0;
+    font-weight: 400;
+}
+
+.mainContent b {
+    font-weight: 400;
+}
+
 .mainContent p {
     font-size: 18px;
     font-weight: 300;
